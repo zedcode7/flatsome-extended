@@ -8,17 +8,17 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://github.com/zedcode7/
+ * @link              https://github.com/zedcode7/flatsome-extended
  * @since             1.0.0
  * @package           Flatsome_Extended
  *
  * @wordpress-plugin
  * Plugin Name:       Flatsom extended
- * Plugin URI:        https://github.com/zedcode7/
+ * Plugin URI:        https://github.com/zedcode7/flatsome-extended
  * Description:       Some Extra feature and solution for flatsome theme and ux-builder
  * Version:           1.0.0
  * Author:            Zunaed Abrar
- * Author URI:        https://github.com/zedcode7//
+ * Author URI:        https://github.com/zedcode7/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       flatsome-extended
@@ -30,12 +30,34 @@ if (! defined('WPINC')) {
 	die;
 }
 
+
+
+
 /**
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
 define('FLATSOME_EXTENDED_VERSION', '1.0.0');
+
+
+
+
+require 'plugin-update-checker/plugin-update-checker.php';
+
+use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
+
+$myUpdateChecker = PucFactory::buildUpdateChecker(
+	'https://github.com/zedcode7/flatsome-extended',
+	__FILE__,
+	'flatsome-extended'
+);
+
+//Set the branch that contains the stable release.
+$myUpdateChecker->setBranch('main');
+
+//Optional: If you're using a private repository, specify the access token like this:
+$myUpdateChecker->setAuthentication('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');
 
 /**
  * The code that runs during plugin activation.
