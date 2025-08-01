@@ -42,22 +42,7 @@ define('FLATSOME_EXTENDED_VERSION', '1.0.0');
 
 
 
-
-require 'plugin-update-checker/plugin-update-checker.php';
-
-use YahnisElsts\PluginUpdateChecker\v5\PucFactory;
-
-$myUpdateChecker = PucFactory::buildUpdateChecker(
-	'https://github.com/zedcode7/flatsome-extended',
-	__FILE__,
-	'flatsome-extended'
-);
-
-//Set the branch that contains the stable release.
-$myUpdateChecker->setBranch('main');
-
-//Optional: If you're using a private repository, specify the access token like this:
-$myUpdateChecker->setAuthentication('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');
+/*  */
 
 /**
  * The code that runs during plugin activation.

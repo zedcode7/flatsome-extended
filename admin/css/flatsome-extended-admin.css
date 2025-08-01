@@ -2,3 +2,16 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
+
+
+ 
+/*  panel icon set */
+  #accordion-panel-flatsome_extend_customizer > .accordion-section-title::before {
+    content: "\f151";
+    font-family: 'Dashicons';
+    font-size: 18px;
+    margin-right: 8px;
+    vertical-align: middle;
+
+ 
+}

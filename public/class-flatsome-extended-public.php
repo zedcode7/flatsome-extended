@@ -75,7 +75,7 @@ class Flatsome_Extended_Public
 		 * class.
 		 */
 
-		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/flatsome-extended-public.css', array(), $this->version, 'all');
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/flatsome-extended-public.css', array(), '1.1.2', 'all');
 	}
 
 	/**

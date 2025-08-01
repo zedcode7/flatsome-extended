@@ -41,6 +41,7 @@ function fx_list_style_dynamic_css()
     $listicon_color_dark = get_theme_mod('list_style_color_dark');
 
     $custom_css = "
+
         ul li.bullet-arrow:before,
         ul li.bullet-checkmark:before,
         ul li.bullet-star:before {
