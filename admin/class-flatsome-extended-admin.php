@@ -75,7 +75,7 @@ class Flatsome_Extended_Admin
 		 * class.
 		 */
 
-		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/flatsome-extended-admin.css', array(), $this->version, 'all');
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/flatsome-extended-admin.css', array(), time(), 'all');
 	}
 
 	/**
@@ -99,5 +99,22 @@ class Flatsome_Extended_Admin
 		 */
 
 		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/flatsome-extended-admin.js', array('jquery'), $this->version, false);
+	}
+
+
+	public function list_style_customize_register($wp_customize)
+	{
+		// Add the main panel of Flatsome extend
+		$wp_customize->add_panel('flatsome_extend_customizer', array(
+			'title'       => __('Flatsome Extend settings', 'flatsome-extended'),
+			'description' => __('Settings grouped under Flatsome Extended plugin.', 'flatsome-extended'),
+			'priority'    => 160, // Controls position in the Customizer
+		));
+
+
+		require_once plugin_dir_path(__FILE__) . 'customizer/list-style-customizer.php'; //get the customizere setting specialy for list style
+
+
+
 	}
 }

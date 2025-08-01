@@ -75,7 +75,8 @@ class Flatsome_Extended_Public
 		 * class.
 		 */
 
-		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/flatsome-extended-public.css', array(), '1.1.2', 'all');
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/flatsome-extended-public.css', array(), $this->version, 'all');
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/flatsome-default-style-fixes.css', array(), $this->version, 'all');
 	}
 
 	/**
@@ -102,19 +103,26 @@ class Flatsome_Extended_Public
 	}
 
 
-	public function list_style_customize_register($wp_customize)
+	function fx_list_style_dynamic_css()
 	{
-		// Add the main panel of Flatsome extend
-		$wp_customize->add_panel('flatsome_extend_customizer', array(
-			'title'       => __('Flatsome Extend settings', 'flatsome-extended'),
-			'description' => __('Settings grouped under Flatsome Extended plugin.', 'flatsome-extended'),
-			'priority'    => 160, // Controls position in the Customizer
-		));
+		$listicon_color = get_theme_mod('list_style_color');
+		$listicon_color_dark = get_theme_mod('list_style_color_dark');
 
+		$custom_css = "
 
-		require_once plugin_dir_path(__FILE__) . 'customizer/list-style-customizer.php'; //get the customizere setting specialy for list style
+        ul li.bullet-arrow:before,
+        ul li.bullet-checkmark:before,
+        ul li.bullet-star:before {
+            color: {$listicon_color} !important;
+        }
 
+        .col-inner.dark ul li.bullet-arrow:before,
+        .col-inner.dark ul li.bullet-checkmark:before,
+        .col-inner.dark ul li.bullet-star:before {
+            color: {$listicon_color_dark} !important;
+        }
+    ";
 
-
+		wp_add_inline_style('flatsome-extended', $custom_css);
 	}
 }
