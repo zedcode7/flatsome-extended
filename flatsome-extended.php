@@ -104,6 +104,9 @@ function  run_plugin_only_for_flatsome()
 		deactivate_plugins(plugin_basename(__FILE__));
 	}
 }
+
+
+
 /**
  * Begins execution of the plugin.
  *
