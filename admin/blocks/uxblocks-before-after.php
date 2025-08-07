@@ -6,26 +6,26 @@ function zed_register_before_after_element()
 {
 
     add_ux_builder_shortcode('pm_before_after_img', array(
-        'name' => __('Before AFter Slider'),
-        'category' => __('Flatsome Extend'),
+        'name' => __('Before AFter Slider', 'flatsome-extended'),
+        'category' => __('Flatsome Extend', 'flatsome-extended'),
         'thumbnail' => plugin_dir_url(__FILE__) . 'thumbnails/ux_before_after.svg',
         'options' => array(
             'before_img' => array(
                 'type' => 'image',
-                'heading' => __('Select Before Image'),
+                'heading' => __('Select Before Image', 'flatsome-extended'),
                 'full_width'   => true,
 
             ),
             'after_img' => array(
                 'type' => 'image',
-                'heading' => __('Select afetr Image'),
+                'heading' => __('Select afetr Image', 'flatsome-extended'),
                 'full_width'   => true,
 
             ),
 
             'img-slider-group' => array(
                 'type' => 'group',
-                'heading' => __('Before-after Style'),
+                'heading' => __('Before-after Style', 'flatsome-extended'),
                 'options' => array(
                     'imgcont_height' => array(
                         'type' => 'textfield',
@@ -56,12 +56,12 @@ function zed_register_before_after_element()
                     ),
                     'button_text_before' => array(
                         'type' => 'textfield',
-                        'heading' => __('Before Text'),
+                        'heading' => __('Before Text', 'flatsome-extended'),
                         'default' => 'Before',
                     ),
                     'button_text_after' => array(
                         'type' => 'textfield',
-                        'heading' => __('After Text'),
+                        'heading' => __('After Text', 'flatsome-extended'),
                         'default' => 'After',
                     ),
 
@@ -101,20 +101,20 @@ add_shortcode(
     <div class="before-after-main">
 
         <div class="before-after-container" style="border-radius:<?php echo absint($atts['border_radius']); ?>px ">
-            <div class="image-container" style=" height: <?php echo sanitize_text_field($atts['imgcont_height']); ?>;">
+            <div class="image-container" style=" height: <?php esc_attr($atts['imgcont_height']); ?>;">
 
                 <div class="img-sli">
                     <div class="img-sli-texts">
-                        <span class="text-before"> <?php echo sanitize_text_field($atts['button_text_before']); ?></span>
-                        <span class="text-after"> <?php echo sanitize_text_field($atts['button_text_after']); ?></span>
+                        <span class="text-before"> <?php echo esc_attr($atts['button_text_before']); ?></span>
+                        <span class="text-after"> <?php echo esc_attr($atts['button_text_after']); ?></span>
                     </div>
                 </div>
                 <img class="image-before slider-image"
-                    src="<?php echo esc_url(wp_get_attachment_image_url($atts['before_img'], sanitize_text_field($atts['button_text_after']))); ?>"
+                    src="<?php echo esc_url(wp_get_attachment_image_url($atts['before_img'], esc_attr($atts['button_text_after']))); ?>"
                     alt="color photo" />
 
                 <img class="image-after slider-image"
-                    src="<?php echo esc_url(wp_get_attachment_image_url($atts['after_img'], sanitize_text_field($atts['button_text_after']))); ?>"
+                    src="<?php echo esc_url(wp_get_attachment_image_url($atts['after_img'], esc_attr($atts['button_text_after']))); ?>"
                     alt="black and white" />
 
             </div>

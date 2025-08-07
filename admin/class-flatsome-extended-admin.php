@@ -117,21 +117,4 @@ class Flatsome_Extended_Admin
 		require_once plugin_dir_path(__FILE__) . 'blocks/uxblocks-before-after.php';
 		require_once plugin_dir_path(__FILE__) . 'blocks/uxblocks-ninjaform.php';
 	}
-
-
-
-	public function load_public_scripts_for_uxbuilder()
-	{
-
-
-
-		if (
-			isset($_GET['app']) && $_GET['app'] === 'uxbuilder' &&
-			isset($_GET['type']) && $_GET['type'] === 'editor'
-		) {
-			echo  '<h2>';
-			echo  wp_enqueue_style($this->plugin_name, plugin_dir_url(__DIR__) . 'public/css/flatsome-extended-public.css', array(), time(), 'all');;
-			echo  '</h2>';
-		}
-	}
 }

@@ -52,9 +52,9 @@ function nfux_register_block()
                 'format' => 'rgb',
 
             ),
-            'input_radious' => array(
+            'input_radius' => array(
                 'type' => 'slider',
-                'heading' => 'Input Radious',
+                'heading' => 'Input Radius',
                 'default' => '',
                 'max' => 100,
                 'min' => 1,
@@ -67,23 +67,57 @@ function nfux_register_block()
                 'format' => 'rgb',
 
             ),
-            'submitbutton_bg' => array(
-                'type' => 'colorpicker',
-                'heading' => __('button Background', 'flatsome-extended'),
-                'default' => '',
-                'alpha' => true,
-                'format' => 'rgb',
-                'position' => 'bottom right',
+            'Button_setting' => array(
+                'type' => 'group',
+                'heading' => __('Button Style', 'flatsome-extended'),
+                'options' => array(
+                    'submitbutton_bg' => array(
+                        'type' => 'colorpicker',
+                        'heading' => __('button Background', 'flatsome-extended'),
+                        'default' => '',
+                        'alpha' => true,
+                        'format' => 'rgb',
+                        'position' => 'bottom right',
 
-            ),
-            'submitbutton_text' => array(
-                'type' => 'colorpicker',
-                'heading' => __('button Text Color', 'flatsome-extended'),
-                'default' => '',
-                'alpha' => true,
-                'format' => 'rgb',
+                    ),
+                    'submitbutton_text' => array(
+                        'type' => 'colorpicker',
+                        'heading' => __('button Text Color', 'flatsome-extended'),
+                        'default' => '',
+                        'alpha' => true,
+                        'format' => 'rgb',
+
+                    ),
+                    'submitbutton_radius' => array(
+                        'type' => 'slider',
+                        'heading' => 'Button Radius',
+                        'default' => '',
+                        'max' => 100,
+                        'min' => 1,
 
 
+                    ),
+                    'submitbutton_width' => array(
+                        'type' => 'slider',
+                        'heading' => 'Button width (%)',
+                        'default' => 'auto',
+                        'max' => 100,
+                        'min' => 1,
+                        'unit'    => '%',
+
+                    ),
+                    'submitbutton_padding' => array(
+                        'type' => 'margins',
+                        'heading' => 'Padding',
+                        'full_width' => true,
+                        'responsive' => true,
+                        'min' => 0,
+                        'max' => 200,
+                        'step' => 1,
+
+                    ),
+
+                )
             ),
 
         ),
@@ -132,12 +166,16 @@ function nfux_render_block($atts)
         'submitbutton_bg' => '',
         'submitbutton_text' => '',
         'placeholder_color' => '',
-        'input_radious' => '',
+        'input_radius' => '',
         'input_bg' => '',
         'form_bg' => '',
         'form_padding' => '',
         'submitbutton_bg' => '',
         'block_id' => 'nfux-' . substr(md5(uniqid()), 0, 6),
+        'submitbutton_radius' => '',
+        'submitbutton_width' => '',
+        'submitbutton_padding' => '',
+
     ], $atts);
 
     // Sanitize values
@@ -146,11 +184,13 @@ function nfux_render_block($atts)
     $form_bg = esc_attr($atts['form_bg']);
     $form_padding = esc_attr($atts['form_padding']);
     $input_bg = esc_attr($atts['input_bg']);
-    $input_radious = is_numeric($atts['input_radious']) ? floatval($atts['input_radious']) . 'px' : '';
+    $input_radius = is_numeric($atts['input_radius']) ? floatval($atts['input_radius']) . 'px' : '';
     $placeholder_color = esc_attr($atts['placeholder_color']);
     $submit_bg = esc_attr($atts['submitbutton_bg']);
     $submit_text = esc_attr($atts['submitbutton_text']);
-
+    $submit_radius = is_numeric($atts['submitbutton_radius']) ? floatval($atts['submitbutton_radius']) . 'px' : '';
+    $submit_width = is_numeric($atts['submitbutton_width']) ? floatval($atts['submitbutton_width']) . '%' : '';
+    $submit_padding = esc_attr($atts['submitbutton_padding']);
     $class = 'ninjablock-' . $block_id;
 
     //block layout
@@ -163,13 +203,13 @@ function nfux_render_block($atts)
         $style .= ".$class { padding: $form_padding !important; }";
     }
 
-    if ($input_bg || $input_radious) {
+    if ($input_bg || $input_radius) {
         $style .= ".$class .nf-field-element input:not([type='submit']), .$class .nf-field-element textarea {";
         if ($input_bg) {
             $style .= "background-color: $input_bg;";
         }
-        if ($input_radious) {
-            $style .= "border-radius: $input_radious;";
+        if ($input_radius) {
+            $style .= "border-radius: $input_radius;";
         }
         $style .= "}";
     }
@@ -178,13 +218,22 @@ function nfux_render_block($atts)
         $style .= ".$class ::placeholder { color: $placeholder_color; }";
     }
 
-    if ($submit_bg || $submit_text) {
+    if ($submit_bg || $submit_text || $submit_radius || $submit_width || $submit_padding) {
         $style .= ".$class .nf-form-content input[type='submit'] {";
         if ($submit_bg) {
             $style .= "background-color: $submit_bg;";
         }
         if ($submit_text) {
             $style .= "color: $submit_text;";
+        }
+        if ($submit_radius) {
+            $style .= "border-radius: $submit_radius;";
+        }
+        if ($submit_width) {
+            $style .= "width: $submit_width;";
+        }
+        if ($submit_padding) {
+            $style .= "padding: $submit_padding;";
         }
         $style .= "}";
     }
@@ -200,12 +249,12 @@ function nfux_render_block($atts)
     if (!is_uxbuilder_active()) {
         return $style . '<div class="' . esc_attr($class) . '">' . do_shortcode($form_shortcode) . '</div>';
     } else {
-        if ($form_id) {
+        if (esc_attr($form_id)) {
             echo  $style; ?>
 
-            <div class="<?php echo esc_attr($class) ?>" style="padding:<?php echo $form_padding ?>; border:1px dashed #aaa;">
+            <div class="<?php echo esc_attr($class) ?>" style="padding:<?php echo esc_attr($form_padding);  ?>; border:1px dashed #aaa;">
 
-                <h5 style="display:inline;">style it here as example for frontend <strong><?php echo '[ninja_form id="' . $form_id . '"]'  ?> </strong> </h5> <br>
+                <h5 style="display:inline;">style it here as example for frontend <strong><?php echo '[ninja_form id="' . esc_attr($form_id) . '"]'  ?> </strong> </h5> <br>
                 <p>Note: <small>Save before adding another form block</small></p>
                 <div class="form-style nf-field-element nf-form-content">
                     <label for="">Label example </label>
