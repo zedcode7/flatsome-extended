@@ -142,6 +142,8 @@ class Flatsome_Extended
 		$plugin_i18n = new Flatsome_Extended_i18n();
 
 		$this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
+
+		$this->loader->add_action('customize_register', $plugin_i18n, 'list_style_customize_register');
 	}
 
 	/**
@@ -158,7 +160,6 @@ class Flatsome_Extended
 
 		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
 		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
-		$this->loader->add_action('customize_register', $plugin_admin, 'list_style_customize_register'); 		//customizer for List style 
 	}
 
 	/**
@@ -175,8 +176,7 @@ class Flatsome_Extended
 
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
 		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
-		//adding the custom css for list customizer
-		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'fx_list_style_dynamic_css');
+		$this->loader->add_action('wp_enqueue_scripts',  $plugin_public, 'fx_list_style_dynamic_css');
 	}
 
 	/**

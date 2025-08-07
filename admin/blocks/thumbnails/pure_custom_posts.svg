@@ -1,0 +1,74 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 68" width="100" height="68">
+	<title>blog_posts</title>
+	<defs>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp1">
+			<path d="m0 0h100v68h-100z"/>
+		</clipPath>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp2">
+			<path d="m12 10h40v48h-40z"/>
+		</clipPath>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp3">
+			<path d="m12 10h40v48h-40z"/>
+		</clipPath>
+		<linearGradient id="g1" x2="1" gradientUnits="userSpaceOnUse" gradientTransform="matrix(42.506,52.75,-51.729,41.683,12,10)">
+			<stop offset="0" stop-color="#c8eaf4" stop-opacity=".21"/>
+			<stop offset="1" stop-color="#3dd0ff" stop-opacity="1"/>
+		</linearGradient>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp4">
+			<path d="m12 10h40v48h-40z"/>
+		</clipPath>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp5">
+			<path d="m0 0h100v68h-100z"/>
+		</clipPath>
+		<clipPath clipPathUnits="userSpaceOnUse" id="cp6">
+			<path d="m0 0h100v68h-100z"/>
+		</clipPath>
+		<image width="26" height="26" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACUUlEQVRIx+2WTUhUYRSGn+86995m1PkzlTJLy1QsaVGrIIoCRShcRBv3LSIiqCiCFtUmaFuLiKhFRAi1KBe2CIICKyIzSKuRjMofBhsbde6de7137tfCnxCdnEGyjWd5Xg4P5zuH93xifdUeyQqEwgrFKuj/ggSw14hQ5mr/FrTfiHJ5tIbTiarlg3zREBXnLhKuu4JaWD9Pa0mtBaBfM7LX5wqKth3EZ+5DDwlc4wuO8QmAUldjZzqIBJ4UJZbZkRCEm5qxuwUA9q/nc1KzUYKCoFdPMahaeXakKPhrt+IOqSBBr67A7a1EOiD1nwi/iiq2A7DZqiZWsoZu3lNvFxLTTTwWmo1YzIJKjx4hEDyO9UIsKCg87GF2KMipPzkt43Dz8SUCjsWtyCB3QyO5PV364wBSHSTjxPG8BEpwVvHIpOK4RhwRMBHqdLZhpIcJOcGQz6ZfMxd//aVMNdx6gMiuC5gdCnayi2TsPABb2q9j3GhEGpD8fAZ7/M3ftzabUBAsRlo+wk0tWI+mG7fHX6JoEbQN61BSDUgDvKlR1GQPfs9HRsCk4ubeUUnbIYqrTpF+uvRSpofvcfvVa0pnXOFa9DsPgvHcZuRZNkLzctr8bT+65iAeYAkvvxmJggJqHt5h8uompAtjfcdwzRgArZNlnEhspE9PcbL8A4qc3k4pIIPMb0b+HXXIeCXSBTf9FSfVN6e908Z4qxdxPzSCB3hi6SOdFRRorMUdmJnDaOc87ZtqcbY8lpfxZgWNtXfi7DaxB8BOPFv+KVn9nKyCZuM342La+WE4XcwAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		.s0 { fill: #ffffff } 
+		.s1 { fill: url(#g1);stroke: #00a0d2;stroke-width: 2 } 
+		.s2 { opacity: .14;fill: #00a0d2 } 
+		.s3 { fill: #00a0d2 } 
+		.s4 { opacity: .18;fill: #00a0d2 } 
+	</style>
+	<g id="Elements">
+		<g id="blog_posts">
+			<path id="path-1" fill-rule="evenodd" class="s0" d="m0 0h100v68h-100z"/>
+			<g id="Clip-Path: image" clip-path="url(#cp1)">
+				<g id="image">
+					<g>
+						<g id="Clip-Path: Mask" clip-path="url(#cp2)">
+							<g id="Mask" style="opacity: .15">
+								<g id="Clip-Path" clip-path="url(#cp3)">
+									<path id="path-4" fill-rule="evenodd" class="s1" d="m12 10h40v48h-40z"/>
+								</g>
+							</g>
+						</g>
+						<g id="Clip-Path: Shape-Copy-6" clip-path="url(#cp4)">
+							<path id="Shape-Copy-6" fill-rule="evenodd" class="s2" d="m36.3 43.8c0 0 3-3 3.7-6.9 1.8 0 2.8-4.2 1.1-5.7 0.1-1.5 2.2-12.2-8.9-12.2-11.1 0-8.9 10.7-8.8 12.2-1.8 1.5-0.7 5.7 1.1 5.7 0.6 3.9 3.6 6.9 3.6 6.9 0 0 0 2.8-1 2.9-3.3 0.5-15.6 5.9-15.6 11.8h41.5c0-5.9-12.3-11.3-15.6-11.8-1.1-0.1-1.1-2.9-1.1-2.9z"/>
+						</g>
+					</g>
+				</g>
+			</g>
+			<g id="Clip-Path: date-box" clip-path="url(#cp5)">
+				<g id="date-box">
+					<g id="Rectangle-494">
+						<path fill-rule="evenodd" class="s3" d="m12 21h11v11h-11z"/>
+					</g>
+				</g>
+			</g>
+			<g id="Clip-Path: headline" clip-path="url(#cp6)">
+				<g id="headline" style="opacity: .6">
+					<g>
+						<path id="Rectangle-167-Copy-16" fill-rule="evenodd" class="s3" d="m62.2 21h27v3h-27z"/>
+						<path id="Rectangle-167-Copy-17" fill-rule="evenodd" class="s3" d="m62.2 25.9h20v3h-20z"/>
+						<path id="Rectangle-167-Copy-8" fill-rule="evenodd" class="s4" d="m62 39.5h16v3h-16z"/>
+						<path id="Rectangle-167-Copy-7" fill-rule="evenodd" class="s4" d="m62 34.4h19v3h-19z"/>
+					</g>
+				</g>
+			</g>
+		</g>
+		<use id="3fa024eb8fac7324c67bf4c8ed4d14b30be455e6595e08545b22800d781a8707" href="#img1" transform="matrix(.75,0,0,.75,0,0)"/>
+	</g>
+</svg>

@@ -75,8 +75,7 @@ class Flatsome_Extended_Public
 		 * class.
 		 */
 
-		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/flatsome-extended-public.css', array(), $this->version, 'all');
-		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/flatsome-default-style-fixes.css', array(), $this->version, 'all');
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/flatsome-extended-public.css', array(), time(), 'all');
 	}
 
 	/**
@@ -99,11 +98,12 @@ class Flatsome_Extended_Public
 		 * class.
 		 */
 
-		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/flatsome-extended-public.js', array('jquery'), $this->version, false);
+		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/flatsome-extended-public.js', array('jquery'), time(), false);
+		wp_enqueue_script($this->plugin_name . '-before-after', plugin_dir_url(__FILE__) . 'js/flatsome-extended-before-after.js', array(), time(), true);
 	}
 
 
-	function fx_list_style_dynamic_css()
+	public	function fx_list_style_dynamic_css()
 	{
 		$listicon_color = get_theme_mod('list_style_color');
 		$listicon_color_dark = get_theme_mod('list_style_color_dark');
@@ -124,5 +124,18 @@ class Flatsome_Extended_Public
     ";
 
 		wp_add_inline_style('flatsome-extended', $custom_css);
+	}
+
+
+
+
+	public	function flatsome_extent_enqueue_ux_builder_styles()
+	{
+		wp_enqueue_style(
+			'flatsome-extended-public-style',
+			plugin_dir_url(__FILE__) . 'css/flatsome-extended-public.css',
+			array(),
+			'1.0.0'
+		);
 	}
 }
